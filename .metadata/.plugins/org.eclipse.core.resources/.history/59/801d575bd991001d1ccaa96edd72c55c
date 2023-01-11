@@ -1,0 +1,16 @@
+package com.exception;
+
+public class ResourceNotFoundException extends  RuntimeException{
+private String resouceName;
+private String fieldName;
+private Object fieldValue;
+public ResourceNotFoundException(String resouceName, String fieldName, Object fieldValue) {
+	super(String.format("Resource not found",resouceName,fieldName,fieldValue));
+	this.resouceName = resouceName;
+	this.fieldName = fieldName;
+	this.fieldValue = fieldValue;
+	
+}
+
+
+}
