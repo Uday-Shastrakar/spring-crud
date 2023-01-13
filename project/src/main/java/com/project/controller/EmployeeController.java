@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.employee.model.Employee;
+
 import com.project.model.Employe;
 import com.project.service.EmployeeService;
 @RestController
