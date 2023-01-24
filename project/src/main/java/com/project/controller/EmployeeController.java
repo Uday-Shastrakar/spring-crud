@@ -1,6 +1,7 @@
 package com.project.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ private List<Employe> getAllEmployes(){
 
 //to get employee by id
 @GetMapping("/emp/{id}")
-private Employe getEmploye(@PathVariable("id")Long id) {
+private Optional<Employe> getEmploye(@PathVariable("id")Long id) {
 	return employeeService.getEmployeById(id);
 	
 }
@@ -50,14 +51,14 @@ private void deleteEmploye(@PathVariable("id")Long id) {
 //to Save Employee data
 @PostMapping("/emp")
 private ResponseEntity<Employe> saveEmploye(@RequestBody Employe employe) {
-	employeeService.saveEmploye(employe);
-	return new ResponseEntity<Employe>(employeeService.saveEmploye(employe), HttpStatus.CREATED);
+	Employe savedEmp = employeeService.saveEmploye(employe);
+	return new ResponseEntity<>(savedEmp, HttpStatus.OK);
 }
 
 //to update Employee data 
 @PutMapping("/emp")
 private Employe updateEmploye(@RequestBody Employe employe) {
-	employeeService.saveEmploye(employe);;
+	employeeService.saveEmploye(employe);
 	return employe;
 	
 }
